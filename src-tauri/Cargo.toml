@@ -1,0 +1,23 @@
+[package]
+name = "soundforge-local"
+version = "0.1.0"
+description = "RinkoSound Windows desktop audio editor"
+authors = ["RinkoSound"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+base64 = "0.22"
+rusqlite = { version = "0.32", features = ["bundled"] }
+tauri = { version = "2", features = ["protocol-asset"] }
+tauri-plugin-shell = "2"
+tauri-plugin-dialog = "2"
+tokio = { version = "1", features = ["fs", "io-util"] }
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
